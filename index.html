@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Uploader</title>
+
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" href="assets/css/styles.css">
+	</head>
+	<body>
+		<div class="hauler" id="hauler-app">
+			<upload-zone></upload-zone>
+		</div>
+
+		<script type="text/template" id="upload-zone-template">
+			<div class="uploader" id="uploader">
+				<div class="messages" id="messages"></div>
+				<div class="upload-box">Click or drop any file anywhere</div>
+				<input v-model="files" type="file" id="file" name="file" multiple="multiple">
+				<label for="file" class="upload-zone" id="upload-zone"></label>
+			</div>
+		</script>
+		<script src="assets/js/vendor/vue.min.js"></script>
+		<script src="assets/js/uploader.js"></script>
+	</body>
+</html>
