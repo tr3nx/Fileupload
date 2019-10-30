@@ -14,17 +14,14 @@ let uploadzone = Vue.component('upload-zone', {
 		this.xhr.onreadystatechange = () => {
 			if (this.xhr.readyState === XMLHttpRequest.DONE) {
 				if (this.xhr.status >= 200 && this.xhr.status <= 299) {
-					console.log("upload completed");
-				} else {
-					console.log("failed with error messge from server");
-					console.log(this.xhr.responseText);
+					console.log("[+] upload completed");
+					return;
 				}
+				throw new Error(`server error: ${this.xhr.responseText}`);
 			}
 		};
 
-		this.xhr.onerror = (e) => {
-			console.log("[Error]:", e);
-		};
+		this.xhr.onerror = (e) => { throw new Error(e); };
 
 		this.xhr.upload.addEventListener('progress', (e) => {
 			this.progress = Math.round((e.loaded / e.total) * 100);

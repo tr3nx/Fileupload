@@ -20,16 +20,16 @@ html, body {
 }
 
 .uploader input[type="file"] {
-	visibility: hidden;
 	position: absolute;
 	text-indent: -9999px;
+	visibility: hidden;
 }
 
 .uploader .messages {
+	width: 100%;
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 100%;
 	text-align: left;
 }
 	.uploader .messages p {
@@ -82,5 +82,11 @@ html, body {
 		transition: all 0.5s ease;
 		border-color: rgba(120, 159, 138, 1);
 		color: rgba(120, 159, 138, 1);
-		text-shadow: 3px 3px 0 rgba(120,159,138,0.3);
+		animation: bobble 4s infinite;
 	}
+
+@keyframes bobble {
+	0%   { text-shadow: 0px 0px 0 rgba(120, 159, 138, 0.3); }
+	50%  { text-shadow: 0px 0px 10px rgba(120, 159, 138, 1); }
+	100% { text-shadow: 0px 0px 0 rgba(120, 159, 138, 0.3); }
+}
